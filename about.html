@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Обо мне</title>
+  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="about background.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Градиенты -->
+  <div class="gradient-container">
+    <div class="gradient-spot one"></div>
+    <div class="gradient-spot two"></div>
+    <div class="gradient-spot three"></div>
+  </div>
+
+  <!-- Навигация -->
+  <header class="navbar">
+    <nav class="menu">
+      <a href="index.html">Главная</a>
+      <a href="video.html">Откаты</a>
+      <a class="active" href="about.html">Обо мне</a>
+    </nav>
+  </header>
+
+  <!-- Контент -->
+  <main class="container">
+    <!-- Левая часть -->
+    <section class="info">
+      <h1>йоу</h1>
+      <hr />
+      <p class="bold">
+        я разработчик, дизайнер ес не кто не знал,<br />
+        создаю сайты и веб приложения
+      </p>
+      <p>
+        в свободное время люблю слушать музыку,<br />
+        писать сайты и играть в игры.
+      </p>
+      <div class="buttons">
+        <a href="https://t.me/tg_beautifuI" class="btn">Telegram</a>
+        <a href="https://discord-tracker.com/acura/" class="btn">Discord Tracker</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Музыкальный плеер ВНЕ container -->
+  <div class="player">
+    <img src="images/cover.jpg" alt="cover" class="cover" />
+    <div class="track-details">
+      <div class="track-title">ROXXXSTAR</div>
+      <div class="track-artist">jay roxxx</div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="time" id="current-time">0:00</div>
+        <div class="time" id="duration">0:00</div>
+      </div>
+    </div>
+    <button id="play-btn" class="play-btn">❚❚</button>
+    <audio id="audio" src="music/roxxxstar.mp3"></audio>
+  </div>
+      <!-- Фото -->
+      <section class="avatar">
+        <img src="images/avatar.jpg" alt="Фото" />
+      </section>
+  <!-- Скрипт -->
+  <script src="player.js"></script>
+</body>
+</html>

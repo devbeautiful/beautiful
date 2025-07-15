@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  html, body {
+    margin: 0; padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    height: 100vh;
+    background: radial-gradient(circle at center, #2f2f3f, #111);
+    position: relative;
+  }
+  
+  /* Центрируем контейнер для кружков */
+  body .gradient-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-origin: center center;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: rotateClockwise;
+    animation-duration: 20s; /* скорость вращения */
+  }
+  
+  /* Каждый кружок позиционируется от центра с отступом (радиус окружности) */
+  body .gradient-spot {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(300px);
+    opacity: 0.7;
+    mix-blend-mode: screen;
+  }
+  
+  /* Конкретные кружки с разными цветами и радиусами */
+  
+  .gradient-spot.one {
+    width: 600px;
+    height: 600px;
+    background: #ff428726;
+    top: -300px;  /* пол-ширины вверх от центра */
+    left: -50px;  /* небольшой сдвиг по горизонтали */
+  }
+  
+  .gradient-spot.two {
+    width: 700px;
+    height: 700px;
+    background: #80ccff2b;
+    top: 50px;   /* чуть ниже центра */
+    left: 350px; /* вправо от центра */
+  }
+  
+  .gradient-spot.three {
+    width: 500px;
+    height: 500px;
+    background: #63ffb62e;
+    top: 200px;  /* ниже центра */
+    left: -250px; /* влево от центра */
+  }
+  
+  /* Ключевые кадры вращения по часовой стрелке */
+  @keyframes rotateClockwise {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Header */
+  .navbar {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  padding: 0 40px;
+  height: 50px;
+  z-index: 10; /* Добавить! */
+}
+
+.menu {
+    font-family: 'Montserrat Alternates', sans-serif;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    display: flex;
+    gap: 15px;
+  }
+  
+  
+  
+  .menu a {
+    text-decoration: none;
+    color: #aaaaaa70;
+    background: #1a1a1a5d;
+    padding: 15px 50px;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 1s;
+    opacity: 0;
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 0s;      /* чуть позже Hero */
+  }
+
+  @keyframes fadeUp {
+    0%   { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0);    }
+  }
+  
+  .menu a:hover {
+    background: #8a95af2f;
+    color: #ffffff8a;
+  }
+
+  .gradient-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform-origin: center center;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: rotateClockwise;
+    animation-duration: 20s;
+    pointer-events: none; /* Чтобы фон не мешал кликам */
+    z-index: 0;
+  }
+  
+  .gradient-spot {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(150px);
+    opacity: 0.7;
+    mix-blend-mode: screen;
+  }
+  
+  .gradient-spot.one {
+    width: 600px;
+    height: 600px;
+    background: #ff428726; /* красноватый с прозрачностью */
+    top: -300px;
+    left: -50px;
+  }
+  
+  .gradient-spot.two {
+    width: 700px;
+    height: 700px;
+    background: #80ccff2b; /* голубоватый с прозрачностью */
+    top: 50px;
+    left: 350px;
+  }
+  
+  .gradient-spot.three {
+    width: 500px;
+    height: 500px;
+    background: #63ffb62e; /* зеленоватый с прозрачностью */
+    top: 200px;
+    left: -250px;
+  }
+  
+  @keyframes rotateClockwise {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+
+
+  .video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    padding-top: 90px;
+    padding-bottom: 30px;
+    
+  }
+  
+  .video-box {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background-color: black;
+    border-radius: 10px;
+    display: block;
+  }
+
+  /* для полноэкранного режима */
+video:fullscreen,
+video:-webkit-full-screen,    /* Safari */
+video:-moz-full-screen,       /* Firefox */
+video:-ms-fullscreen {        /* IE */
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  background: black;
+}

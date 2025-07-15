@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Video</title>
+    <link rel="stylesheet" href="style video.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gradient-container">
+        <div class="gradient-spot one"></div>
+        <div class="gradient-spot two"></div>
+        <div class="gradient-spot three"></div>
+      </div>
+      <header class="navbar">
+          </div>
+        <nav class="menu">
+          <a href="index.html">Главная</a>
+          <a href="video.html">Откаты</a>
+          <a href="about.html">Обо мне</a>
+        </nav>
+      </header>
+      <main class="video-grid" id="videoGrid"></main>
+
+<script>
+  const container = document.getElementById('videoGrid');
+if (container) {
+  fetch('videos/videos.json')
+    .then(res => res.json())
+    .then(files => {
+      files.forEach(file => {
+        const video = document.createElement('video');
+        video.src = `videos/${file}`;
+        video.controls = true;
+        video.className = 'video-box';
+        container.appendChild(video);
+      });
+    });
+}
+
+</script>
+    <footer>
+        <!-- &copy; 2025 BEAUTIFUL. All video. -->
+    </footer>
+</body>
+</html>
