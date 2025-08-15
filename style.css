@@ -346,3 +346,78 @@
     }
   }
   
+  /* 📱 Адаптация под телефоны до 768px */
+@media (max-width: 768px) {
+    html, body {
+        overflow: auto; /* Разрешаем скролл на мобильных */
+        height: auto;
+    }
+
+    .navbar {
+        padding: 0 15px;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo:hover {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        top: 70px;
+        position: static;
+        transform: none;
+        text-align: center;
+    }
+
+    .menu a {
+        padding: 10px 20px;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .hero {
+        margin-left: 0;
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 14vw;
+        margin-top: 40px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-top: 20px;
+        line-height: 1.4;
+    }
+
+    .watch-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .gradient-spot.one,
+    .gradient-spot.two,
+    .gradient-spot.three {
+        width: 300px;
+        height: 300px;
+        filter: blur(120px);
+    }
+}
+  
