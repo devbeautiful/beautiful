@@ -417,3 +417,11 @@
         filter: blur(120px);
     }
 }
+
+@media (max-width: 768px) {
+    .profile-card {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
