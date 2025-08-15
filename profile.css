@@ -41,10 +41,9 @@ body {
 
   .banner img {
     width: 100%;
-    height: 100px;
-    object-fit: contain;
-background-color: #000; /* или любой фон */
-  }
+    height: 100px; /* можно убрать, чтобы сохранялось соотношение сторон */
+    object-fit: cover; /* вместо fill */
+}
   
   .avatar {
     position: relative;
