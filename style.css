@@ -68,7 +68,7 @@ html, body {
 
     /* Профильная карточка */
     .profile-card {
-        margin: 0px;
+        margin: 10px;
         width: 80%;
         max-width: 360px;
         animation: none;
