@@ -346,44 +346,40 @@
     }
   }
   
-  /* 📱 Адаптация под телефоны до 768px */
+  /* 📱 Мобильная адаптация */
 @media (max-width: 768px) {
     html, body {
-        overflow: auto; /* Разрешаем скролл на мобильных */
+        overflow-x: hidden; /* убираем горизонтальный скролл */
+        overflow-y: auto;   /* включаем вертикальную прокрутку */
         height: auto;
     }
 
     .navbar {
-        padding: 0 15px;
+        padding: 10px;
         height: auto;
         flex-direction: column;
         align-items: center;
     }
 
     .logo {
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
+        left: auto;
+        transform: none;
         width: 60px;
         height: 60px;
-    }
-
-    .logo:hover {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
+        margin-bottom: 10px;
     }
 
     .menu {
         flex-direction: column;
-        gap: 10px;
-        top: 70px;
+        gap: 8px;
         position: static;
         transform: none;
         text-align: center;
     }
 
     .menu a {
-        padding: 10px 20px;
+        padding: 10px 15px;
         font-size: 14px;
         display: inline-block;
     }
@@ -396,14 +392,15 @@
     }
 
     .title {
-        font-size: 14vw;
-        margin-top: 40px;
+        font-size: 12vw;
+        margin-top: 20px;
     }
 
     .subtitle {
         font-size: 14px;
-        margin-top: 20px;
+        margin-top: 15px;
         line-height: 1.4;
+        max-width: 90%;
     }
 
     .watch-btn {
@@ -420,4 +417,3 @@
         filter: blur(120px);
     }
 }
-  
