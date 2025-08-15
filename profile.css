@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1f22;
+    font-family: 'Segoe UI', sans-serif;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profile-card {
+    border: 5px solid #27292d43;
+    background-color: #2b2d311b;
+    border-radius: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 30px 15px #1e1f225f;
+    width: 320px;
+    color: white;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    animation: slideInRight 2.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    animation-delay: 0.2s; /* опционально: задержка */
+    opacity: 0; /* чтобы было плавное появление */
+  }
+
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(25vw); /* начинается за экраном справа */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);     /* возвращается на место */
+    }
+  }
+  
+
+  .banner img {
+    width: 100%;
+    height: 100px;
+    object-fit: fill;
+  }
+  
+  .avatar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 8px;
+    margin-top: -60px; /* Поднята выше */
+    z-index: 2;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #2b2d31;
+    object-fit: cover;
+  }
+  
+  .status {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 26px;
+    height: 26px;
+    background-color: #3ba55d;
+    border: 5px solid #2b2d31;
+    border-radius: 50%;
+  }
+
+  .user-info {
+    padding: 0px 12px 0;
+  }
+  
+  .user-info h2 {
+  margin: 10px 0 -6px;
+  font-size: 20px;
+}
+  
+.username-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    margin-top: -4px;
+  }
+  
+  .username {
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .badges {
+    margin: 8px 0;
+  }
+  
+  .badge {
+    color: white;
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .badge.fame {
+    background-color: #5865f200;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid rgba(88, 88, 88, 0.688);
+  }
+  
+  .link {
+    display: block;
+    color: #00aff4;
+    text-decoration: none;
+    margin-top: 8px;
+    word-break: break-all;
+    font-size: 14px;
+  }
+  
+  /* 📱 Мобильная адаптация профиля */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .profile-card {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 90%;
+        max-width: 360px;
+        animation: none; /* убираем боковой выезд, чтобы не обрезалось */
+        opacity: 1;
+    }
+
+    .banner img {
+        height: 80px;
+        object-fit: cover;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        margin-left: 10px;
+        margin-top: -50px;
+    }
+
+    .status {
+        width: 20px;
+        height: 20px;
+        border-width: 3px;
+    }
+
+    .user-info {
+        padding: 0 10px;
+    }
+
+    .user-info h2 {
+        font-size: 18px;
+    }
+
+    .username-badges {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 2px 6px;
+    }
+
+    .link {
+        font-size: 13px;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
