@@ -346,3 +346,33 @@
     }
   }
   
+  /* Базовая адаптация под экраны до 768px (телефоны) */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* делаем текст читаемым */
+        padding: 10px; /* отступы по краям */
+    }
+
+    header, nav, footer {
+        flex-direction: column; /* элементы в столбик */
+        align-items: center;
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%; /* картинки не выходят за экран */
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    button, a {
+        display: block; /* кнопки и ссылки занимают всю ширину */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+  
