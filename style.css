@@ -1,85 +1,132 @@
-/* Глобально */
+/* ===== Глобальные стили ===== */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%; /* вместо фиксированного 100vh */
+    min-height: 100%;
     overflow-x: hidden;
+    background-color: #1e1f22;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* 📱 Мобильная адаптация */
+/* ===== Карточка профиля ===== */
+.profile-card {
+    border: 5px solid #27292d43;
+    background-color: #2b2d311b;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 30px 15px #1e1f225f;
+    width: 320px;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    animation: slideInRight 2.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(25vw);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== Баннер ===== */
+.banner img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover; /* аккуратная обрезка без растяжки */
+    display: block;
+}
+
+/* ===== Аватар ===== */
+.avatar {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 8px;
+    margin-top: -60px; /* поднимаем над баннером */
+    z-index: 2;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #2b2d31;
+    object-fit: cover;
+}
+
+/* ===== Статус ===== */
+.status {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 26px;
+    height: 26px;
+    background-color: #3ba55d;
+    border: 5px solid #2b2d31;
+    border-radius: 50%;
+}
+
+/* ===== Информация о пользователе ===== */
+.user-info {
+    padding: 0px 12px 0;
+}
+
+.user-info h2 {
+    margin: 10px 0 -6px;
+    font-size: 20px;
+}
+
+.username-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: -4px;
+}
+
+.badge {
+    color: white;
+    border-radius: 10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge.fame {
+    background-color: transparent;
+    border: 1px solid rgba(88, 88, 88, 0.688);
+}
+
+.link {
+    display: block;
+    color: #00aff4;
+    text-decoration: none;
+    margin-top: 8px;
+    word-break: break-all;
+    font-size: 14px;
+}
+
+/* ===== Адаптивность ===== */
 @media (max-width: 768px) {
-    html, body {
-        overflow-y: auto; /* включаем вертикальную прокрутку */
-        height: auto;     /* убираем фиксированную высоту */
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-    }
-
-    .navbar {
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-    }
-
-    .logo {
-        position: relative;
-        left: auto;
-        transform: none;
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
-    .menu {
-        flex-direction: column;
-        gap: 8px;
-        position: static;
-        transform: none;
-        text-align: center;
-    }
-
-    .hero {
-        margin-left: 0;
-        padding: 20px;
-        align-items: center;
-        text-align: center;
-        height: auto; /* вместо 100vh */
-        animation: none; /* убираем сложную анимацию на мобилках */
-    }
-
-    .title {
-        font-size: 12vw;
-        margin-top: 20px;
-    }
-
-    .subtitle {
-        font-size: 14px;
-        margin-top: 15px;
-        line-height: 1.4;
-        max-width: 90%;
-    }
-
-    /* Профильная карточка */
     .profile-card {
-        margin: 10px;
         width: 90%;
         max-width: 360px;
+        margin: 10px auto;
         animation: none;
         opacity: 1;
     }
 
     .banner img {
-    height: auto; /* чтобы не тянуло */
-    max-height: 80px; /* лимит для мобильных */
-    object-fit: cover;
-}
+        height: 80px;
+        object-fit: cover;
+    }
 
     .avatar {
         width: 80px;
@@ -96,11 +143,6 @@ html, body {
 
     .user-info h2 {
         font-size: 16px;
-    }
-
-    .username-badges {
-        flex-wrap: wrap;
-        gap: 5px;
     }
 
     .badge {
