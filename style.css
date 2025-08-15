@@ -76,9 +76,10 @@ html, body {
     }
 
     .banner img {
-        height: 80px;
-        object-fit: cover;
-    }
+    height: auto; /* чтобы не тянуло */
+    max-height: 80px; /* лимит для мобильных */
+    object-fit: cover;
+}
 
     .avatar {
         width: 80px;
