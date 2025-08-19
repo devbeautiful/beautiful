@@ -118,36 +118,42 @@ body {
 
 /* --- Mobile adaptation --- */
 @media (max-width: 768px) {
-  /* прячем стандартное меню */
   .menu {
-    position:fixed;
-    top:0; right:-100%;
-    flex-direction:column;
-    background:#111a;
-    padding:80px 30px;
-    gap:20px;
-    height:100vh;
-    width:200px;
-    border-left:1px solid #333;
-    transition:0.4s;
-    opacity:1;
-    transform:none;
+    position: fixed;
+    top: 0; 
+    left: -100%;   /* ← выезжать будет слева */
+    flex-direction: column;
+    background: #111a;
+    padding: 80px 30px;
+    gap: 20px;
+    height: 100vh;
+    width: 200px;
+    border-right: 1px solid #333;
+    transition: 0.4s;
   }
+
   .menu a {
-    opacity:1;
-    padding:12px 20px;
-    border-radius:10px;
-    text-align:center;
-    background:#222a;
-    font-size:16px;
+    opacity: 1;              /* 👈 фикс */
+    animation: none;         /* 👈 убираем анимацию */
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-align: left;
+    background: #222a;
+    font-size: 16px;
   }
-  .burger { display:block; }
+
+  .burger { display: block; }
 
   /* когда открыто меню */
-  body.menu-open .menu { right:0; }
-  body.menu-open .burger span:nth-child(1) { transform:rotate(45deg) translate(5px,5px);}
-  body.menu-open .burger span:nth-child(2) { opacity:0; }
-  body.menu-open .burger span:nth-child(3) { transform:rotate(-45deg) translate(6px,-6px);}
+  body.menu-open .menu { left: 0; }
+
+  body.menu-open .burger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px,5px);
+  }
+  body.menu-open .burger span:nth-child(2) { opacity: 0; }
+  body.menu-open .burger span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px,-6px);
+  }
 }
 
 @keyframes slideInLogo { 0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);} }
