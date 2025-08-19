@@ -50,7 +50,7 @@ html, body {
         padding: 20px;
         align-items: center;
         text-align: center;
-        height: auto; /* вместо 100vh */
+        min-height: 100vh;
         animation: none; /* убираем сложную анимацию на мобилках */
     }
 
@@ -68,19 +68,27 @@ html, body {
 
     /* Профильная карточка */
     .profile-card {
+        position: relative;
         margin: 10px;
         width: 90%;
         max-width: 360px;
         animation: none;
         opacity: 1;
+        z-index: 1;
     }
 
     .banner img {
-        height: 80px;
-        object-fit: cover;
+        display: block;
+    width: 100%;
+    height: 120px; /* фиксируем */
+    object-fit: cover;
     }
 
     .avatar {
+        position: relative;
+    z-index: 2; /* чтобы был поверх баннера */
+    border-radius: 50%;
+    border: 3px solid #fff;
         width: 80px;
         height: 80px;
         margin-left: 10px;
