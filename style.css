@@ -98,6 +98,58 @@ body {
 }
 .menu a:hover{background:#8a95af2f;color:#fff8a;}
 
+/* --- кнопка-бургер (по умолчанию скрыта) --- */
+.burger {
+  display:none;
+  position:absolute;
+  top:5px; right:20px;
+  width:30px; height:25px;
+  cursor:pointer;
+  z-index:20;
+}
+.burger span {
+  display:block;
+  height:3px; width:100%;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+  transition:0.4s;
+}
+
+/* --- Mobile adaptation --- */
+@media (max-width: 768px) {
+  /* прячем стандартное меню */
+  .menu {
+    position:fixed;
+    top:0; right:-100%;
+    flex-direction:column;
+    background:#111a;
+    padding:80px 30px;
+    gap:20px;
+    height:100vh;
+    width:200px;
+    border-left:1px solid #333;
+    transition:0.4s;
+    opacity:1;
+    transform:none;
+  }
+  .menu a {
+    opacity:1;
+    padding:12px 20px;
+    border-radius:10px;
+    text-align:center;
+    background:#222a;
+    font-size:16px;
+  }
+  .burger { display:block; }
+
+  /* когда открыто меню */
+  body.menu-open .menu { right:0; }
+  body.menu-open .burger span:nth-child(1) { transform:rotate(45deg) translate(5px,5px);}
+  body.menu-open .burger span:nth-child(2) { opacity:0; }
+  body.menu-open .burger span:nth-child(3) { transform:rotate(-45deg) translate(6px,-6px);}
+}
+
 @keyframes slideInLogo { 0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);} }
 @keyframes fadeUp {0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);}}
 
