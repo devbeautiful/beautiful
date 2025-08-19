@@ -1,117 +1,151 @@
-/* Глобально */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%; /* вместо фиксированного 100vh */
-    overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 📱 Мобильная адаптация */
+html, body {
+  margin: 0; padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #2f2f3f, #111);
+  position: relative;
+}
+
+/* фоновые круги */
+.gradient-container {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  transform-origin: center;
+  animation: rotateClockwise 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.gradient-spot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+.gradient-spot.one { width:600px;height:600px;background:#ff428726;top:-300px;left:-50px; }
+.gradient-spot.two { width:700px;height:700px;background:#80ccff2b;top:50px;left:350px; }
+.gradient-spot.three { width:500px;height:500px;background:#63ffb62e;top:200px;left:-250px; }
+
+@keyframes rotateClockwise { from{transform:rotate(0);} to{transform:rotate(360deg);} }
+
+/* Navbar */
+.navbar {
+  position: absolute;
+  top: 20px; left: 0;
+  width: 100%; height: 50px;
+  padding: 0 40px;
+  z-index: 10;
+}
+
+.logo {
+  position: absolute;
+  top: 0; left: 40px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex; justify-content: center; align-items: center;
+  transition: 0.5s;
+  opacity: 0;
+  animation: slideInLogo 2s ease forwards 1s;
+  z-index: 10;
+}
+.logo img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 50%; transition: .75s;
+}
+.logo:hover { width: 400px; height: 200px; border-radius: 50px; box-shadow:0 0 35px 15px rgba(16,18,21,0.186);}
+.logo:hover img {opacity:.1;filter:blur(20px);border-radius:0;}
+.logo .btn {
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  opacity:0;transition:.6s;
+  padding:15px 30px;
+  background:rgba(255,255,255,0.1);color:white;
+  border-radius:50px;cursor:pointer;font-size:14px;
+  pointer-events:none;z-index:20;
+}
+.logo:hover .btn{opacity:1;pointer-events:auto;}
+
+.menu {
+  position: absolute;
+  top:0; left:50%; transform:translateX(-50%);
+  display:flex; gap:15px;
+  font-family:'Montserrat Alternates',sans-serif;
+}
+.menu a {
+  text-decoration:none;
+  color:#aaa7;
+  background:#1a1a1a5d;
+  padding:15px 50px;
+  border-radius:25px;
+  font-size:14px;
+  opacity:0;animation:fadeUp 2s ease forwards 1s;
+  transition:1s;
+}
+.menu a:hover{background:#8a95af2f;color:#fff8a;}
+
+@keyframes slideInLogo { 0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);} }
+@keyframes fadeUp {0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);}}
+
+/* Hero */
+.hero {
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  height:100vh; padding:0 60px; margin-left:-125px;
+  animation:slideInLeft 2s cubic-bezier(0.25,0.8,0.25,1) forwards;
+  z-index:1; position:relative;
+}
+@keyframes slideInLeft {0%{opacity:0;transform:translateX(-50vw);}100%{opacity:1;transform:translateX(0);} }
+
+.title {
+  margin-top:100px;
+  font-size:10vw; font-weight:900;
+  background:linear-gradient(to right,#fff,#d0d0d0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.subtitle {
+  font-family:'Montserrat Alternates',sans-serif;
+  font-size:16px;
+  margin-top:50px;
+  max-width:5000px;
+  line-height:1.6;
+  color:#ccc;
+}
+.watch-btn {
+  font-family:'Montserrat Alternates',sans-serif;
+  display:inline-block;margin-top:30px;
+  padding:15px 30px;
+  background:rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.473);
+  border-radius:20px;
+  text-decoration:none;font-weight:500;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:1s;
+}
+.watch-btn:hover {background:rgba(255,255,255,0.15);color:#fff;}
+
+/* 📱 Mobile adaptation */
 @media (max-width: 768px) {
-    html, body {
-        overflow-y: auto; /* включаем вертикальную прокрутку */
-        height: auto;     /* убираем фиксированную высоту */
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-    }
-
-    .navbar {
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-    }
-
-    .logo {
-        position: relative;
-        left: auto;
-        transform: none;
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
-    .menu {
-        flex-direction: column;
-        gap: 8px;
-        position: static;
-        transform: none;
-        text-align: center;
-    }
-
-    .hero {
-        margin-left: 0;
-        padding: 20px;
-        align-items: center;
-        text-align: center;
-        min-height: 100vh;
-        animation: none; /* убираем сложную анимацию на мобилках */
-    }
-
-    .title {
-        font-size: 12vw;
-        margin-top: 20px;
-    }
-
-    .subtitle {
-        font-size: 14px;
-        margin-top: 15px;
-        line-height: 1.4;
-        max-width: 90%;
-    }
-
-    /* Профильная карточка */
-    .profile-card {
-        position: relative;
-        margin: 10px;
-        width: 90%;
-        max-width: 360px;
-        animation: none;
-        opacity: 1;
-        z-index: 1;
-    }
-
-    .banner img {
-        display: block;
-    width: 100%;
-    height: 120px; /* фиксируем */
-    object-fit: cover;
-    }
-
-    .avatar {
-        position: relative;
-    z-index: 2; /* чтобы был поверх баннера */
-    border-radius: 50%;
-    border: 3px solid #fff;
-        width: 80px;
-        height: 80px;
-        margin-left: 10px;
-        margin-top: -50px;
-    }
-
-    .status {
-        width: 20px;
-        height: 20px;
-        border-width: 3px;
-    }
-
-    .user-info h2 {
-        font-size: 18px;
-    }
-
-    .username-badges {
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .badge {
-        font-size: 11px;
-        padding: 2px 6px;
-    }
+  .menu {display:none;}       /* уберем меню */
+  .logo {left:20px;width:40px;height:40px;} /* меньше логотип */
+  .hero {margin-left:0;padding:0 20px;align-items:center;text-align:center;}
+  .title {font-size:14vw;margin-top:50px;}
+  .subtitle {font-size:14px;margin-top:20px;}
+  .watch-btn {padding:10px 20px;font-size:13px;margin-top:20px;}
 }
